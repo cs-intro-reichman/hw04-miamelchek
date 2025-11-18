@@ -1,5 +1,33 @@
 public class Primes {
     public static void main(String[] args) {
-        // Replace this statement with your code
+        int n = Integer.parseInt(args[0]);
+        if (n < 2) {
+            System.out.println("Prime numbers up to " + n + ":");
+            System.out.println("There are 0 primes between 2 and " + n + " (0% are primes)");
+            return;
+        }
+        // יצירת מערך באוכך שניתן מהמשתמש והגדרת כל הערכים חוץ מאפס ואחד כאמת 
+        boolean[] isPrime = new boolean[n + 1];
+
+        isPrime[0] = false;
+        isPrime[1] = false;
+
+        for (int i = 2; i <= n; i++) {
+            isPrime[i] = true;
+        }
+        // הראשוני הראשון
+        int p = 2;
+        while (p * p <= n) {
+        for (int i = p * p; i <= n; i += p) {
+            isPrime[i] = false;
+        }
+            p++;
+            while (p <= n && isPrime[p] == false) {
+                p++;
+            }
+                    
+        }
+
+
     }
 }
